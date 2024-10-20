@@ -7,12 +7,16 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "production": "aws s3 sync dist s3://datarozhlas/klima-skupiny --delete --acl public-read && aws cloudfront create-invalidation --distribution-id E3ABKG4QXPTL3P --paths '/klima-skupiny/*'"
   },
   "dependencies": {
     "@radix-ui/react-tabs": "^1.1.1",
+    "@radix-ui/react-tooltip": "^1.1.3",
+    "@types/lodash": "^4.17.12",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.453.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
